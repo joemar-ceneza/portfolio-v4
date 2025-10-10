@@ -1,9 +1,24 @@
 import { NextResponse } from "next/server";
 
-const GITHUB_USERNAME = "joemar-ceneza";
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
+let cache: {
+  totalCommits: number;
+  timestamp: number;
+} | null = null;
+
+const CACHE_DURATION = 15 * 60 * 1000;
+
 export async function GET() {
+  if (!GITHUB_TOKEN) {
+    return NextResponse.json({ error: "GitHub token not provided" }, { status: 500 });
+  }
+
+  if (cache && Date.now() - cache.timestamp < CACHE_DURATION) {
+    return NextResponse.json({ totalCommits: cache.totalCommits, cached: true });
+  }
+
   try {
     const repoRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`, {
       headers: {
@@ -11,27 +26,42 @@ export async function GET() {
       },
     });
 
+    if (!repoRes.ok) {
+      throw new Error(`Failed to fetch repos: ${repoRes.status}`);
+    }
+
     const repos = await repoRes.json();
 
-    let totalCommits = 0;
-
-    for (const repo of repos) {
+    const commitPromises = repos.map(async (repo: any) => {
       const commitsRes = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/contributors`, {
         headers: {
           Authorization: `token ${GITHUB_TOKEN}`,
         },
       });
 
+      if (!commitsRes.ok) {
+        return 0;
+      }
+
       const contributors = await commitsRes.json();
 
-      const self = contributors.find((c: any) => c.login === GITHUB_USERNAME);
-      if (self) {
-        totalCommits += self.contributions;
-      }
-    }
+      if (!Array.isArray(contributors)) return 0;
 
-    return NextResponse.json({ totalCommits });
+      const self = contributors.find((c: any) => c.login === GITHUB_USERNAME);
+      return self ? self.contributions : 0;
+    });
+
+    const commitCounts = await Promise.all(commitPromises);
+    const totalCommits = commitCounts.reduce((acc, curr) => acc + curr, 0);
+
+    cache = {
+      totalCommits,
+      timestamp: Date.now(),
+    };
+
+    return NextResponse.json({ totalCommits, cached: false });
   } catch (err) {
+    console.error(err);
     return NextResponse.json({ error: "Failed to fetch commits" }, { status: 500 });
   }
 }
