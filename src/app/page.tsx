@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
 import Social from "@/components/Social";
+import Photo from "@/components/Photo";
+import Stats from "@/components/Stats";
 
 export default function Home() {
   return (
     <section className="h-full">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
-          <div className="text-center xl:text-left">
+          <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Full Stack Developer</span>
             <h1 className="h1 mb-6">
               Hello I'm <br />
@@ -17,10 +19,12 @@ export default function Home() {
               I thrive on coding and creativity, aiming to build a solid path in the world of Web Development.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
-              </Button>
+              <a href="/asset/JC Resume 2025.pdf" download>
+                <Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+                </Button>
+              </a>
               <div className="mb-8 xl:mb-0">
                 <Social
                   containerStyles="flex gap-6"
@@ -29,9 +33,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div>Photo</div>
+          <div className="order-1 xl:order-none mb-8 xl:mb-0">
+            <Photo />
+          </div>
         </div>
       </div>
+      <Stats />
     </section>
   );
 }
