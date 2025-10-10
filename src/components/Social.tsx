@@ -10,14 +10,6 @@ const socials = [
     icons: <FaLinkedinIn />,
     path: "",
   },
-  {
-    icons: <FaYoutube />,
-    path: "",
-  },
-  {
-    icons: <FaTwitter />,
-    path: "",
-  },
 ];
 
 type SocialProps = {
