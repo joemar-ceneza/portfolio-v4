@@ -8,7 +8,7 @@ export default function Photo() {
     <div className="w-full h-full relative">
       <motion.div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute">
         <Image
-          src="/asset/profile-picture.png"
+          src="/assets/profile-picture.png"
           priority
           quality={100}
           fill
