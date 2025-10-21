@@ -34,18 +34,19 @@ const projects = [
   },
   {
     number: "02",
-    category: "frontend",
-    title: "project 1",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    category: "full stack",
+    title: "mood tracker app",
+    description:
+      "A mood tracker app that allows users to log in and out, track their emotional well-being, and record their daily mood",
     stack: [
       {
-        name: "HTML 5",
+        name: "Next JS",
       },
       {
-        name: "CSS 3",
+        name: "TypeScript",
       },
       {
-        name: "JavaScript",
+        name: "MongoDB",
       },
     ],
     image: "/assets/work/mood-tracking-app.jpg",
@@ -55,17 +56,21 @@ const projects = [
   {
     number: "03",
     category: "fullstack",
-    title: "project 2",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    title: "Our Home e-commerce",
+    description:
+      "A full stack e-commerce website for home furniture, featuring product listings, shopping cart functionality, user checkout, and secure payment processing via Stripe integration.",
     stack: [
       {
-        name: "HTML 5",
+        name: "React JS",
       },
       {
-        name: "CSS 3",
+        name: "Node/Express",
       },
       {
-        name: "JavaScript",
+        name: "MongoDB",
+      },
+      {
+        name: "Stripe API",
       },
     ],
     image: "/assets/work/our-home.jpg",
@@ -74,18 +79,22 @@ const projects = [
   },
   {
     number: "04",
-    category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    category: "fullstack",
+    title: "photo land",
+    description:
+      "A full stack e-commerce website for selling cameras. Users can browse camera products, add items to a shopping cart, and securely check out using Stripe for payment processing.",
     stack: [
       {
-        name: "HTML 5",
+        name: "React JS",
       },
       {
-        name: "CSS 3",
+        name: "Node/Express",
       },
       {
-        name: "JavaScript",
+        name: "MongoDB",
+      },
+      {
+        name: "Stripe API",
       },
     ],
     image: "/assets/work/camera-haus.jpg",
@@ -95,17 +104,18 @@ const projects = [
   {
     number: "05",
     category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    title: "portfolio v3",
+    description:
+      "A modern personal portfolio website showcasing projects, skills, and experience. Built with a responsive design and smooth animations for a clean, professional user experience.",
     stack: [
       {
-        name: "HTML 5",
+        name: "Next JS",
       },
       {
-        name: "CSS 3",
+        name: "TailwinCSS",
       },
       {
-        name: "JavaScript",
+        name: "TypeScript",
       },
     ],
     image: "/assets/work/portfolio-v3.jpg",
@@ -115,8 +125,9 @@ const projects = [
   {
     number: "06",
     category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    title: "portfolio v2",
+    description:
+      "A personal portfolio website (v2) built with HTML and CSS, showcasing projects, skills, and contact information with a clean and responsive design.",
     stack: [
       {
         name: "HTML 5",
@@ -135,8 +146,9 @@ const projects = [
   {
     number: "07",
     category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    title: "portfolio v1",
+    description:
+      "A personal portfolio website (v1) built with HTML and CSS, showcasing projects, skills, and contact information with a clean and responsive design.",
     stack: [
       {
         name: "HTML 5",
@@ -155,34 +167,36 @@ const projects = [
   {
     number: "08",
     category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    title: "e-shopping",
+    description:
+      "A front-end e-commerce website for clothing, built with React and styled using Tailwind CSS. It fetches product data from a ready-to-use clothing API and allows users to browse items with a clean, responsive interface.",
     stack: [
       {
-        name: "HTML 5",
+        name: "React JS",
       },
       {
-        name: "CSS 3",
+        name: "TailwindCSS",
       },
       {
-        name: "JavaScript",
+        name: "Clothing API",
       },
     ],
-    image: "/assets/work/todo-list.jpg",
+    image: "/assets/work/e-shopping.jpg",
     live: "",
     github: "",
   },
   {
     number: "09",
     category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    title: "huddle landing page",
+    description:
+      "A responsive landing page for Huddle, built with React JS and TailwindCSS. The design features a clean layout, call-to-action sections, and modern styling for a professional web presence.",
     stack: [
       {
-        name: "HTML 5",
+        name: "React JS",
       },
       {
-        name: "CSS 3",
+        name: "TailwindCSS",
       },
       {
         name: "JavaScript",
@@ -195,28 +209,9 @@ const projects = [
   {
     number: "10",
     category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
-    stack: [
-      {
-        name: "HTML 5",
-      },
-      {
-        name: "CSS 3",
-      },
-      {
-        name: "JavaScript",
-      },
-    ],
-    image: "/assets/work/e-shopping.jpg",
-    live: "",
-    github: "",
-  },
-  {
-    number: "11",
-    category: "frontend",
-    title: "project 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi!",
+    title: "simon game",
+    description:
+      "A classic Simon memory game built with HTML, CSS, and JavaScript. Players repeat increasingly complex sequences of colors and sounds, testing their memory and concentration skills.",
     stack: [
       {
         name: "HTML 5",
