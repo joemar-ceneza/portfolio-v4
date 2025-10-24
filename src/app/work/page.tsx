@@ -30,7 +30,7 @@ const projects = [
     ],
     image: "/assets/work/csv-session-processor.jpg",
     live: "https://csv-session-processor.vercel.app/",
-    github: "",
+    github: "https://github.com/joemar-ceneza/csv-session-processor",
   },
   {
     number: "02",
@@ -50,8 +50,8 @@ const projects = [
       },
     ],
     image: "/assets/work/mood-tracking-app.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza-mood-tracking.vercel.app/",
+    github: "https://github.com/joemar-ceneza/mood-tracking",
   },
   {
     number: "03",
@@ -74,8 +74,8 @@ const projects = [
       },
     ],
     image: "/assets/work/our-home.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza-our-home.netlify.app/",
+    github: "https://github.com/joemar-ceneza/our-home",
   },
   {
     number: "04",
@@ -98,8 +98,8 @@ const projects = [
       },
     ],
     image: "/assets/work/camera-haus.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza-camera-haus.netlify.app/",
+    github: "https://github.com/joemar-ceneza/camera-haus",
   },
   {
     number: "05",
@@ -119,8 +119,8 @@ const projects = [
       },
     ],
     image: "/assets/work/portfolio-v3.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza.netlify.app/",
+    github: "https://github.com/joemar-ceneza/portfoli-v3",
   },
   {
     number: "06",
@@ -140,8 +140,8 @@ const projects = [
       },
     ],
     image: "/assets/work/portfolio-v2.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza.github.io/portfolio/",
+    github: "https://github.com/joemar-ceneza/portfolio-v2",
   },
   {
     number: "07",
@@ -182,8 +182,8 @@ const projects = [
       },
     ],
     image: "/assets/work/e-shopping.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza-e-commerce-shopping.netlify.app/",
+    github: "https://github.com/joemar-ceneza/e-shopping",
   },
   {
     number: "09",
@@ -203,8 +203,8 @@ const projects = [
       },
     ],
     image: "/assets/work/huddle-landing-page.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza.github.io/huddle-landing-page/",
+    github: "https://github.com/joemar-ceneza/huddle-landing-page",
   },
   {
     number: "10",
@@ -224,8 +224,8 @@ const projects = [
       },
     ],
     image: "/assets/work/simon-game.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza.github.io/simon-game/",
+    github: "https://github.com/joemar-ceneza/simon-game",
   },
 ];
 
@@ -302,7 +302,13 @@ export default function Services() {
                     <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                       <div className="relative w-full h-full">
-                        <Image src={project.image} fill className="object-cover" alt=""></Image>
+                        <Image
+                          src={item.image}
+                          fill
+                          priority
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                          className="object-cover"
+                          alt=""></Image>
                       </div>
                     </div>
                   </SwiperSlide>
