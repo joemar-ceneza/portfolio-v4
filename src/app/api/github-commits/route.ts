@@ -1,15 +1,11 @@
 import { NextResponse } from "next/server";
+import type { Repo, Contributor, Cache } from "@/types/github";
 
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
-let cache: {
-  totalCommits: number;
-  timestamp: number;
-} | null = null;
-
+let cache: Cache | null = null;
 const CACHE_DURATION = 15 * 60 * 1000;
-
 export async function GET() {
   if (!GITHUB_TOKEN) {
     return NextResponse.json({ error: "GitHub token not provided" }, { status: 500 });
@@ -30,35 +26,28 @@ export async function GET() {
       throw new Error(`Failed to fetch repos: ${repoRes.status}`);
     }
 
-    const repos = await repoRes.json();
-
-    const commitPromises = repos.map(async (repo: any) => {
+    const repos: Repo[] = await repoRes.json();
+    const commitPromises = repos.map(async (repo: Repo) => {
       const commitsRes = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/contributors`, {
         headers: {
           Authorization: `token ${GITHUB_TOKEN}`,
         },
       });
-
       if (!commitsRes.ok) {
         return 0;
       }
-
-      const contributors = await commitsRes.json();
-
+      const contributors: Contributor[] = await commitsRes.json();
       if (!Array.isArray(contributors)) return 0;
-
-      const self = contributors.find((c: any) => c.login === GITHUB_USERNAME);
+      const self = contributors.find((c) => c.login === GITHUB_USERNAME);
       return self ? self.contributions : 0;
     });
 
     const commitCounts = await Promise.all(commitPromises);
     const totalCommits = commitCounts.reduce((acc, curr) => acc + curr, 0);
-
     cache = {
       totalCommits,
       timestamp: Date.now(),
     };
-
     return NextResponse.json({ totalCommits, cached: false });
   } catch (err) {
     console.error(err);
