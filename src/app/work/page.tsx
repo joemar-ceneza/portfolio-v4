@@ -161,8 +161,8 @@ const projects = [
       },
     ],
     image: "/assets/work/portfolio-v1.jpg",
-    live: "",
-    github: "",
+    live: "https://joemar-ceneza-e-commerce-shopping.netlify.app/",
+    github: "https://github.com/joemar-ceneza/e-shopping",
   },
   {
     number: "08",
@@ -308,7 +308,7 @@ export default function Services() {
                           priority
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                           className="object-cover"
-                          alt=""></Image>
+                          alt={item.title}></Image>
                       </div>
                     </div>
                   </SwiperSlide>
