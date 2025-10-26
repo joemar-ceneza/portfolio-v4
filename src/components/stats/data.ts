@@ -1,8 +1,4 @@
-export type Stat = {
-  num: number;
-  text: string;
-  isDynamic?: boolean;
-};
+import { Stat } from "./type";
 
 export const staticStats: Stat[] = [
   { num: 9, text: "Years of IT experience" },
