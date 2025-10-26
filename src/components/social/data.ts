@@ -1,19 +1,16 @@
 import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import type { ReactElement } from "react";
-
-export type SocialItem = {
-  icon: ReactElement;
-  path: string;
-};
+import { SocialItem } from "./type";
 
 export const socials: SocialItem[] = [
   {
     icon: React.createElement(FaGithub),
+    name: "GitHub",
     path: "https://github.com/joemar-ceneza",
   },
   {
     icon: React.createElement(FaLinkedinIn),
+    name: "LinkedIn",
     path: "https://www.linkedin.com/in/joemarceneza/",
   },
 ];

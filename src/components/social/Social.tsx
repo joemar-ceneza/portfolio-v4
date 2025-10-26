@@ -1,16 +1,12 @@
 import { socials } from "./data";
 import SocialLink from "./SocialLink";
-
-type SocialProps = {
-  containerStyles?: string;
-  iconStyles?: string;
-};
+import { SocialProps } from "./type";
 
 export default function Social({ containerStyles, iconStyles }: SocialProps) {
   return (
     <div className={containerStyles}>
-      {socials.map((item, idx) => (
-        <SocialLink key={idx} item={item} iconStyles={iconStyles} />
+      {socials.map((item) => (
+        <SocialLink key={item.name} item={item} iconStyles={iconStyles} />
       ))}
     </div>
   );

@@ -1,20 +1,13 @@
 import Link from "next/link";
-import type { SocialItem } from "./data";
+import type { SocialLinkProps } from "./type";
 
-type SocialLinkProps = {
-  item: SocialItem;
-  idx?: number;
-  iconStyles?: string;
-};
-
-export default function SocialLink({ item, idx, iconStyles }: SocialLinkProps) {
+export default function SocialLink({ item, iconStyles }: SocialLinkProps) {
   return (
     <Link
       href={item.path}
-      key={idx}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Visit ${idx} profile`}
+      aria-label={`Visit ${item.name} profile`}
       className={iconStyles}>
       {item.icon}
     </Link>
