@@ -12,25 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-
-const info = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "(+63) 977 739 7565",
-  },
-  {
-    icon: <FaEnvelope />,
-    title: "Email",
-    description: "joemar.ceneza@gmail.com",
-  },
-  {
-    icon: <FaMapMarkerAlt />,
-    title: "Address",
-    description: "Anak Bayan St, Paltok Quezon City",
-  },
-];
+import { contactInfo, services } from "./data";
 
 export default function Services() {
   return (
@@ -41,7 +23,8 @@ export default function Services() {
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Let&lsquo;s work together</h3>
               <p className="text-white/60">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nihil sapience pariatur id totam.
+                Got an idea, a question, or just want to say hi? Send me a message and let’s see how we can work
+                together.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="firstname" placeholder="Firstname" />
@@ -56,9 +39,11 @@ export default function Services() {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Development</SelectItem>
-                    <SelectItem value="cst">UI/UX Design</SelectItem>
-                    <SelectItem value="mst">Logo Design</SelectItem>
+                    {services.map((service) => (
+                      <SelectItem key={service.value} value={service.value}>
+                        {service.label}
+                      </SelectItem>
+                    ))}
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -69,20 +54,18 @@ export default function Services() {
             </form>
           </div>
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
-            <ul>
-              {info.map((item, idx) => {
-                return (
-                  <li key={idx} className="flex items-center gap-6">
-                    <div className="w-[52px] h-[52px] xl:w-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
-                      <div className="text-[28px]">{item.icon}</div>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
-                    </div>
-                  </li>
-                );
-              })}
+            <ul className="flex flex-col gap-6">
+              {contactInfo.map((item, idx) => (
+                <li key={idx} className="flex items-center gap-6">
+                  <div className="w-[52px] h-[52px] xl:w-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                    <div className="text-[28px]">{item.icon}</div>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white/60">{item.title}</p>
+                    <h3 className="text-xl">{item.description}</h3>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
