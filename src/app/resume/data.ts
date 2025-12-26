@@ -29,7 +29,7 @@ import {
   SiNetlify,
 } from "react-icons/si";
 import React from "react";
-import { About, Experience, Education, Skill } from "./type";
+import { About, Experience, Education, Skill } from "./types";
 
 export const about: About = {
   title: "About me",
