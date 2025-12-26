@@ -1,6 +1,6 @@
 import { socials } from "./data";
 import SocialLink from "./SocialLink";
-import { SocialProps } from "./type";
+import { SocialProps } from "./types";
 
 export default function Social({ containerStyles, iconStyles }: SocialProps) {
   return (

@@ -1,5 +1,5 @@
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { ContactInfo, ServiceOption } from "./type";
+import { ContactInfo, ServiceOption } from "./types";
 import React from "react";
 
 export const contactInfo: ContactInfo[] = [

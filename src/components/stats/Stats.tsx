@@ -3,7 +3,7 @@
 import StatCard from "./StatCard";
 import { staticStats } from "./data";
 import { useCommits } from "./hooks";
-import { Stat } from "./type";
+import { Stat } from "./types";
 
 export default function Stats() {
   const { commits, isLoading, error } = useCommits();

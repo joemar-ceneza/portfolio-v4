@@ -1,7 +1,7 @@
 "use client";
 
 import CountUp from "react-countup";
-import { StatCardProps } from "./type";
+import { StatCardProps } from "./types";
 
 export default function StatCard({ num, text, isLoading }: StatCardProps) {
   return (

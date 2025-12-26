@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { SocialItem } from "./type";
+import { SocialItem } from "./types";
 
 export const socials: SocialItem[] = [
   {

@@ -1,11 +1,10 @@
-import { ReactElement } from "react";
-
-type IconType = string | ReactElement;
+import { ReactNode } from "react";
 
 export interface ContactInfo {
-  icon?: IconType;
+  icon?: ReactNode;
   title: string;
   description: string;
+  href?: string;
 }
 
 export interface ServiceOption {

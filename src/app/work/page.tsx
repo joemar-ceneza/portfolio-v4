@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 import { projects } from "./data";
-import { Project } from "./type";
+import { Project } from "./types";
 
 export default function Services() {
   const [project, setProject] = useState<Project>(projects[0]);

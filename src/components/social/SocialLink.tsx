@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { SocialLinkProps } from "./type";
+import type { SocialLinkProps } from "./types";
 
 export default function SocialLink({ item, iconStyles }: SocialLinkProps) {
   return (

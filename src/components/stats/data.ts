@@ -1,4 +1,4 @@
-import { Stat } from "./type";
+import { Stat } from "./types";
 
 export const staticStats: Stat[] = [
   { num: 9, text: "Years of IT experience" },
