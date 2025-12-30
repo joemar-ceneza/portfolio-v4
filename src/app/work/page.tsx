@@ -12,7 +12,7 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 import { projects } from "./data";
 import { Project } from "./types";
 
-export default function Services() {
+export default function Work() {
   const [project, setProject] = useState<Project>(projects[0]);
   const handleSlideChange = (swiper: SwiperInstance): void => {
     setProject(projects[swiper.activeIndex]);
