@@ -29,7 +29,7 @@ import {
   SiNetlify,
 } from "react-icons/si";
 import React from "react";
-import { About, Experience, Education, Skill } from "./types";
+import { About, Experience, Education, Skills } from "./types";
 
 export const about: About = {
   title: "About me",
@@ -72,7 +72,6 @@ export const about: About = {
 };
 
 export const experience: Experience = {
-  icon: "",
   title: "My experience",
   description:
     "I bring a solid background in professional operations along with hands-on experience in web development. Currently working as a freelance web developer, I focus on building responsive, user-friendly websites using modern tools and best practices. My previous roles in compliance and advertising have helped shape my attention to detail, communication skills, and ability to work in fast-paced environments.",
@@ -96,7 +95,6 @@ export const experience: Experience = {
 };
 
 export const education: Education = {
-  icon: "",
   title: "My education",
   description:
     "Combining a BS in Information Technology with hands-on web development training, I’ve gained both foundational knowledge and up-to-date technical skills to build real-world web applications.",
@@ -114,8 +112,7 @@ export const education: Education = {
   ],
 };
 
-export const skills: Skill = {
-  icon: "",
+export const skills: Skills = {
   title: "My skills",
   description:
     "I focus on building responsive, accessible, and user-friendly websites using modern web technologies. I enjoy writing clean code, solving problems, and continuously learning to improve my skills and deliver better results.",

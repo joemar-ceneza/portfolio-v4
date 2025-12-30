@@ -1,31 +1,26 @@
 import { ReactElement } from "react";
 
-type IconType = string | ReactElement;
+type IconType = ReactElement | React.ComponentType<{className?: string}>;
 
-interface BaseSection {
-  icon?: IconType;
-  title: string;
-  description: string;
-}
-
-interface AboutItem {
+export interface AboutItem {
   fieldName: string;
   fieldValue: string;
+  icon?: IconType;
 }
 
-interface ExperienceItem {
+export interface ExperienceItem {
   company: string;
   position: string;
   duration: string;
 }
 
-interface EducationItem {
+export interface EducationItem {
   institution: string;
   degree: string;
   duration: string;
 }
 
-interface SkillList {
+export interface SkillList {
   icon: ReactElement;
   name: string;
 }
@@ -36,14 +31,20 @@ export interface About {
   info: ReadonlyArray<AboutItem>;
 }
 
-export interface Experience extends BaseSection {
+export interface Experience {
+  title: string;
+  description: string;
   items: ReadonlyArray<ExperienceItem>;
 }
 
-export interface Education extends BaseSection {
+export interface Education {
+  title: string;
+  description: string;
   items: ReadonlyArray<EducationItem>;
 }
 
-export interface Skill extends BaseSection {
+export interface Skills {
+  title: string;
+  description: string;
   list: ReadonlyArray<SkillList>;
 }
