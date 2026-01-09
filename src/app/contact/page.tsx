@@ -13,14 +13,44 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { contactInfo, services } from "./data";
+import { useState, useRef } from "react";
 
 export default function Contact() {
+  const [service, setService] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("idle");
+    const formData = new FormData(e.currentTarget);
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName: formData.get("firstName"),
+        lastName: formData.get("lastName"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        service,
+        message: formData.get("message"),
+      }),
+    });
+    setLoading(false);
+    setStatus(res.ok ? "success" : "error");
+    if (res.ok && formRef.current) {
+      formRef.current.reset(); // ✅ safe now
+      setService("");
+    }
+  }
   return (
     <section className="flex items-center justify-center">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:h-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Let&lsquo;s work together</h3>
               <p className="text-white/60">
                 Got an idea, a question, or just want to say hi? Send me a message and let’s see how we can work
@@ -32,9 +62,9 @@ export default function Contact() {
                 <Input type="email" name="email" placeholder="Email Address" required />
                 <Input type="tel" name="phone" placeholder="Phone number" />
               </div>
-              <Select>
+              <Select value={service} onValueChange={setService}>
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service"></SelectValue>
+                  <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
@@ -47,9 +77,9 @@ export default function Contact() {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              <Textarea className="h-[200px]" name="message" placeholder="Type your message here."></Textarea>
-              <Button size="md" className="max-w-40">
-                Send Message
+              <Textarea className="h-[200px]" name="message" placeholder="Type your message here." required></Textarea>
+              <Button size="md" className="max-w-40" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>
