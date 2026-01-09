@@ -14,36 +14,46 @@ import {
 } from "@/components/ui/select";
 import { contactInfo, services } from "./data";
 import { useState, useRef } from "react";
+import Toast from "@/components/Toast";
 
 export default function Contact() {
   const [service, setService] = useState("");
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: "success" | "error"; } | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     const formData = new FormData(e.currentTarget);
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        firstName: formData.get("firstName"),
-        lastName: formData.get("lastName"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        service,
-        message: formData.get("message"),
-      }),
-    });
-    setLoading(false);
-    if (res.ok && formRef.current) {
-      formRef.current.reset(); // ✅ safe now
-      setService("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          service,
+          message: formData.get("message"),
+        }),
+      });
+      setLoading(false);
+      if (res.ok && formRef.current) {
+        formRef.current.reset();
+        setService("");
+        setToast({ message: "Message sent successfully!", type: "success" });
+      } else {
+        setToast({ message: "Failed to send message. Try again.", type: "error" });
+      }
+    } catch (error) {
+      setLoading(false);
+      setToast({ message: "Something went wrong. Try again.", type: "error" });
     }
   }
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex items-center justify-center relative">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:h-[54%] order-2 xl:order-none">
@@ -97,6 +107,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </section>
   );
 }
