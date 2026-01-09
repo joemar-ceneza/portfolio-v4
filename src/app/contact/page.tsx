@@ -18,13 +18,11 @@ import { useState, useRef } from "react";
 export default function Contact() {
   const [service, setService] = useState("");
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    setStatus("idle");
     const formData = new FormData(e.currentTarget);
     const res = await fetch("/api/contact", {
       method: "POST",
@@ -39,7 +37,6 @@ export default function Contact() {
       }),
     });
     setLoading(false);
-    setStatus(res.ok ? "success" : "error");
     if (res.ok && formRef.current) {
       formRef.current.reset(); // ✅ safe now
       setService("");
