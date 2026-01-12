@@ -14,7 +14,7 @@ export default function Services() {
               key={item.num}
               className="group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 hover:border-accent/50 transition-all duration-500">
               <div className="flex items-center justify-between mb-6">
-                <div className="text-6xl font-black text-transparent [-webkit-text-stroke:2px_#ffffff] group-hover:[-webkit-text-stroke:2px_#00ff99] transition-all duration-500">
+                <div className="text-6xl font-black text-transparent [-webkit-text-stroke:2px_#ffffff] group-hover:[-webkit-text-stroke:2px_var(--color-accent)] transition-all duration-500">
                   {item.num}
                 </div>
                 <Link href={item.href}>
