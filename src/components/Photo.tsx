@@ -38,6 +38,10 @@ export default function Photo() {
             repeat: Infinity,
             repeatType: "reverse",
           }}
+          style={{
+            stroke: "var(--color-accent)",
+            filter: "drop-shadow(0 0 10px var(--color-accent))",
+          }}
         />
       </motion.svg>
     </div>
