@@ -59,9 +59,9 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
   /* Colors */
-  --color-primary: #0F172A;
-  --color-accent: #7C3AED;
-  --color-accent-hover: #6D28D9;
+  --color-primary: #1A1A1D;
+  --color-accent: #FF6B6B;
+  --color-accent-hover: #FF4C4C;
 }
 
 :root {
