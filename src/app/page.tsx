@@ -19,7 +19,7 @@ export default function Home() {
               I thrive on coding and creativity, aiming to build a solid path in the world of Web Development.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <a href="/assets/JC Resume 2025.pdf" download>
+              <a href="/assets/JC Resume 2026.pdf" download>
                 <Button variant="outline" size="lg" className="uppercase flex items-center gap-2 cursor-pointer">
                   <span>Download CV</span>
                   <FiDownload className="text-xl" />
