@@ -23,6 +23,7 @@ export interface EducationItem {
 export interface SkillList {
   icon: ReactElement;
   name: string;
+  category: string;
 }
 
 export interface About {
@@ -46,5 +47,6 @@ export interface Education {
 export interface Skills {
   title: string;
   description: string;
+  categories: ReadonlyArray<string>;
   list: ReadonlyArray<SkillList>;
 }

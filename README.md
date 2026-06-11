@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Joemar Ceneza — Portfolio
 
-## Getting Started
+## What This Does
 
-First, run the development server:
+Personal portfolio site for Joemar Ceneza, a full-stack developer. Showcases projects, skills,
+experience, and a contact form for recruiters and clients to get in touch.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Next.js (App Router), TailwindCSS, TypeScript
+- Zod for input validation
+- Resend for contact form emails
+- GitHub API for the live commits stat on the homepage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+
 
-## Learn More
+## Setup
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repo
+2. `cp .env.example .env.local` — fill in your Resend and GitHub credentials
+3. `npm install`
+4. `npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Overview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Method | Endpoint            | Description                                 |
+| ------ | ------------------- | -------------------------------------------- |
+| POST   | /api/contact        | Send a message from the contact form via email |
+| GET    | /api/github-commits | Total commit count for the homepage stats     |
 
-## Deploy on Vercel
+## Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Route      | Description                          |
+| ---------- | ------------------------------------- |
+| /          | Home — hero, intro, and stats         |
+| /about     | About me, experience, education, skills |
+| /work      | Project showcase                      |
+| /services  | Services offered                      |
+| /contact   | Contact form and contact info         |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+See CLAUDE.md for full structure details.

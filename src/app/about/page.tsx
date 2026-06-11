@@ -1,22 +1,47 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
+import { FiDownload } from "react-icons/fi";
 import { about, experience, education, skills } from "./data";
 
-export default function Resume() {
+export default function About() {
   return (
     <section className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0">
       <div className="container mx-auto">
-        <Tabs defaultValue="experience" className="flex flex-col xl:flex-row gap-[60px]">
+        <Tabs defaultValue="about-me" className="flex flex-col xl:flex-row gap-[60px]">
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0">
+            <TabsTrigger value="about-me">About me</TabsTrigger>
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about-me">About me</TabsTrigger>
           </TabsList>
           <div className="min-h-[70vh] w-full">
+            <TabsContent value="about-me" className="w-full text-center xl:text-left">
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{about.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:max-w-full xl:mx-0">{about.description}</p>
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                  {about.info.map((item, idx) => {
+                    return (
+                      <li key={idx} className="flex items-center justify-center xl:justify-start gap-4">
+                        <span className="text-white/60">{item.fieldName}</span>
+                        <span className="text-xl">{item.fieldValue}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className="flex justify-center xl:justify-start">
+                  <a href="/assets/JC Resume 2026.pdf" download>
+                    <Button variant="outline" size="lg" className="uppercase flex items-center gap-2 cursor-pointer">
+                      <span>Download Resume</span>
+                      <FiDownload className="text-xl" />
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </TabsContent>
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
@@ -74,43 +99,26 @@ export default function Resume() {
                   <p className="max-w-[600px] text-white/60 mx-auto xl:max-w-full xl:mx-0">{skills.description}</p>
                 </div>
                 <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px]">
-                    {skills.list.map((item, idx) => {
-                      return (
-                        <li key={idx}>
-                          <TooltipProvider delayDuration={100}>
-                            <Tooltip>
-                              <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
-                                <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                                  {item.icon}
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p className="capitalize">{item.name}</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <div className="flex flex-col gap-8">
+                    {skills.categories.map((category) => (
+                      <div key={category} className="flex flex-col gap-4 text-center xl:text-left">
+                        <h4 className="text-accent text-lg font-semibold">{category}</h4>
+                        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                          {skills.list
+                            .filter((item) => item.category === category)
+                            .map((item) => (
+                              <li
+                                key={item.name}
+                                className="bg-[#232329] rounded-xl flex flex-col items-center justify-center gap-2 py-6">
+                                <div className="text-5xl">{item.icon}</div>
+                                <span className="text-xs text-white/70 capitalize">{item.name}</span>
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </ScrollArea>
-              </div>
-            </TabsContent>
-            <TabsContent value="about-me" className="w-full text-center xl:text-left">
-              <div className="flex flex-col gap-[30px]">
-                <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:max-w-full xl:mx-0">{about.description}</p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
-                  {about.info.map((item, idx) => {
-                    return (
-                      <li key={idx} className="flex items-center justify-center xl:justify-start gap-4">
-                        <span className="text-white/60">{item.fieldName}</span>
-                        <span className="text-xl">{item.fieldValue}</span>
-                      </li>
-                    );
-                  })}
-                </ul>
               </div>
             </TabsContent>
           </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
 import Social from "@/components/social/Social";
@@ -10,28 +11,30 @@ export default function Home() {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Full Stack Developer</span>
+            <span className="text-xl">Full-Stack Developer</span>
             <h1 className="h1 mb-6">
-              Hello I&apos;m <br />
+              Hello, I&apos;m <br />
               <span className="text-accent">Joemar Ceneza</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I thrive on coding and creativity, aiming to build a solid path in the world of Web Development.
+              I build fast, reliable web apps with Next.js, React, and Node.js — backed by 9+ years of solving
+              problems under pressure in operations and compliance. Currently open to full-time roles.
             </p>
-            <div className="flex flex-col xl:flex-row items-center gap-8">
-              <a href="/assets/JC Resume 2026.pdf" download>
-                <Button variant="outline" size="lg" className="uppercase flex items-center gap-2 cursor-pointer">
-                  <span>Download CV</span>
-                  <FiDownload className="text-xl" />
-                </Button>
-              </a>
-              <a href="/assets/cover-letter.pdf" download>
-                <Button variant="outline" size="lg" className="uppercase flex items-center gap-2 cursor-pointer">
-                  <span>Download CL</span>
-                  <FiDownload className="text-xl" />
-                </Button>
-              </a>
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <Button asChild size="lg" className="uppercase cursor-pointer">
+                <Link href="/work">View My Work</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="uppercase cursor-pointer">
+                <Link href="/contact">Let&apos;s Talk</Link>
+              </Button>
             </div>
+            <a
+              href="/assets/JC Resume 2026.pdf"
+              download
+              className="mt-6 inline-flex items-center gap-2 text-sm text-white/60 hover:text-accent transition-colors">
+              <FiDownload />
+              <span>Download Resume</span>
+            </a>
             <div className="my-8 xl:mb-0">
               <Social
                 containerStyles="flex gap-6"

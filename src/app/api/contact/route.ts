@@ -1,28 +1,43 @@
-import { Resend } from 'resend';
-import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from "resend";
+import { NextRequest } from "next/server";
+import { z } from "zod";
+import { ok, fail, escapeHtml } from "@/lib/utils";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const ContactSchema = z.object({
+  firstName: z.string().min(1).max(100),
+  lastName: z.string().min(1).max(100),
+  email: z.string().email().max(254),
+  phone: z.string().max(30).optional(),
+  service: z.string().max(50).optional(),
+  message: z.string().min(1).max(5000),
+});
 
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
+    const body = await request.json();
+    const result = ContactSchema.safeParse(body);
+    if (!result.success) return fail("Invalid input");
 
+    const { firstName, lastName, email, phone, service, message } = result.data;
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: 'Contact Form <onboarding@resend.dev>',
+      from: "Contact Form <onboarding@resend.dev>",
       to: [process.env.YOUR_EMAIL!],
-      subject: `New Contact from ${data.firstName} ${data.lastName}`,
+      subject: `New Contact from ${firstName} ${lastName}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone || 'Not provided'}</p>
-        <p><strong>Service:</strong> ${data.service}</p>
-        <p><strong>Message:</strong> ${data.message}</p>
+        <p><strong>Name:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone || "Not provided")}</p>
+        <p><strong>Service:</strong> ${escapeHtml(service || "Not specified")}</p>
+        <p><strong>Message:</strong> ${escapeHtml(message)}</p>
       `,
     });
 
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+    return ok(null, "Message sent successfully");
+  } catch (err) {
+    console.error("[POST /api/contact]", err);
+    return fail("Internal server error", 500);
   }
 }

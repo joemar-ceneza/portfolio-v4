@@ -47,7 +47,7 @@ export default function Contact() {
       } else {
         setToast({ message: "Failed to send message. Try again.", type: "error" });
       }
-    } catch (error) {
+    } catch {
       setLoading(false);
       setToast({ message: "Something went wrong. Try again.", type: "error" });
     }
@@ -64,27 +64,62 @@ export default function Contact() {
                 together.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" name="firstName" placeholder="Firstname" required />
-                <Input type="text" name="lastName" placeholder="Lastname" required />
-                <Input type="email" name="email" placeholder="Email Address" required />
-                <Input type="tel" name="phone" placeholder="Phone number" />
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="firstName" className="sr-only">
+                    First name
+                  </label>
+                  <Input id="firstName" type="text" name="firstName" placeholder="Firstname" required />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="lastName" className="sr-only">
+                    Last name
+                  </label>
+                  <Input id="lastName" type="text" name="lastName" placeholder="Lastname" required />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="sr-only">
+                    Email address
+                  </label>
+                  <Input id="email" type="email" name="email" placeholder="Email Address" required />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="phone" className="sr-only">
+                    Phone number
+                  </label>
+                  <Input id="phone" type="tel" name="phone" placeholder="Phone number" />
+                </div>
               </div>
-              <Select value={service} onValueChange={setService}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
-                    {services.map((service) => (
-                      <SelectItem key={service.value} value={service.value}>
-                        {service.label}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              <Textarea className="h-[200px]" name="message" placeholder="Type your message here." required></Textarea>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="service" className="sr-only">
+                  Select a service
+                </label>
+                <Select value={service} onValueChange={setService} name="service">
+                  <SelectTrigger id="service" className="w-full">
+                    <SelectValue placeholder="Select a service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Select a service</SelectLabel>
+                      {services.map((service) => (
+                        <SelectItem key={service.value} value={service.value}>
+                          {service.label}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="sr-only">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  className="h-[200px]"
+                  name="message"
+                  placeholder="Type your message here."
+                  required></Textarea>
+              </div>
               <Button size="md" className="max-w-40" disabled={loading}>
                 {loading ? "Sending..." : "Send Message"}
               </Button>

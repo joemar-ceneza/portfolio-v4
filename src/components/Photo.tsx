@@ -10,9 +10,9 @@ export default function Photo() {
         <Image
           src="/assets/profile-picture.png"
           priority
-          quality={100}
+          quality={75}
           fill
-          alt="profile-picture"
+          alt="Joemar Ceneza, Full-Stack Developer"
           className="object-contain"></Image>
       </motion.div>
       <motion.svg

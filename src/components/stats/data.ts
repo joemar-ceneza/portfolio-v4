@@ -1,7 +1,7 @@
 import { Stat } from "./types";
 
 export const staticStats: Stat[] = [
-  { num: 9, text: "Years of IT experience" },
-  { num: 6, text: "Months of Freelance experience" },
+  { num: 9, text: "Years in operations & compliance" },
+  { num: 1, text: "Year as a freelance developer" },
   { num: 26, text: "Projects completed" },
 ];

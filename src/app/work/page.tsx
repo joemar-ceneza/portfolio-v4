@@ -87,10 +87,10 @@ export default function Work() {
                         <Image
                           src={item.image}
                           fill
-                          priority
+                          priority={idx === 0}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                           className="object-cover"
-                          alt={item.title}></Image>
+                          alt={`Screenshot of the ${item.title} project`}></Image>
                       </div>
                     </div>
                   </SwiperSlide>

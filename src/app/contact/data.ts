@@ -15,14 +15,13 @@ export const contactInfo: ContactInfo[] = [
   },
   {
     icon: React.createElement(FaMapMarkerAlt),
-    title: "Address",
-    description: "Jojo St, Baesa Quezon City",
+    title: "Location",
+    description: "Quezon City, Philippines",
   },
 ];
 
 export const services: ServiceOption[] = [
-  { value: "development", label: "Web Development" },
-  { value: "seo", label: "SEO Optimization" },
-  { value: "uiux", label: "UI/UX Design" },
-  { value: "logo", label: "Logo Design" },
+  { value: "development", label: "Full-Stack Development" },
+  { value: "seo", label: "SEO" },
+  { value: "other", label: "Something else" },
 ];

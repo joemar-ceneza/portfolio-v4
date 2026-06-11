@@ -34,35 +34,35 @@ import { About, Experience, Education, Skills } from "./types";
 export const about: About = {
   title: "About me",
   description:
-    "Hi there! I'm Joemar, I thrive on building user-friendly interfaces and creating seamless digital experiences. Whether working solo or collaborating with a team, I’m always looking for ways to solve problems and bring creative ideas to life.",
+    "Before I wrote my first line of production code, I spent close to a decade in operations and compliance — work that meant tight deadlines, direct contact with stakeholders, and catching the details other people missed. In 2023 I started learning web development, and since 2025 I've been working as a freelance full-stack developer, building with Next.js, React, Node.js, and SQL/NoSQL databases — including a full e-commerce platform with live Stripe payments. I'm now looking for a full-time engineering role where I can bring that same reliability to a product team.",
   info: [
     {
       fieldName: "Name",
       fieldValue: "Joemar Ceneza",
     },
     {
-      fieldName: "Phone",
-      fieldValue: "(+63) 977 739 7565",
-    },
-    {
-      fieldName: "Experience",
-      fieldValue: "9+ Years",
-    },
-    {
-      fieldName: "Teams",
-      fieldValue: "joemar.ceneza",
-    },
-    {
-      fieldName: "Nationality",
-      fieldValue: "Filipino",
-    },
-    {
       fieldName: "Email",
       fieldValue: "joemar.ceneza@gmail.com",
     },
     {
-      fieldName: "Freelance",
-      fieldValue: "Available",
+      fieldName: "Phone",
+      fieldValue: "(+63) 977 739 7565",
+    },
+    {
+      fieldName: "Location",
+      fieldValue: "Quezon City, Philippines",
+    },
+    {
+      fieldName: "Dev Experience",
+      fieldValue: "1+ Year (Freelance)",
+    },
+    {
+      fieldName: "Total Experience",
+      fieldValue: "9+ Years (Ops & Compliance)",
+    },
+    {
+      fieldName: "Availability",
+      fieldValue: "Open to full-time & freelance",
     },
     {
       fieldName: "Languages",
@@ -97,7 +97,7 @@ export const experience: Experience = {
 export const education: Education = {
   title: "My education",
   description:
-    "Combining a BS in Information Technology with hands-on web development training, I’ve gained both foundational knowledge and up-to-date technical skills to build real-world web applications.",
+    "Combining a BS in Information Technology with hands-on web development training, I've gained both foundational knowledge and up-to-date technical skills to build real-world web applications.",
   items: [
     {
       institution: "Online Course Platform",
@@ -116,110 +116,141 @@ export const skills: Skills = {
   title: "My skills",
   description:
     "I focus on building responsive, accessible, and user-friendly websites using modern web technologies. I enjoy writing clean code, solving problems, and continuously learning to improve my skills and deliver better results.",
+  categories: ["Core Stack", "Databases & ORMs", "Also Experienced With", "Tools"],
   list: [
-    {
-      icon: React.createElement(FaHtml5),
-      name: "HTML 5",
-    },
-    {
-      icon: React.createElement(FaCss3),
-      name: "CSS 3",
-    },
-    {
-      icon: React.createElement(FaSass),
-      name: "sass",
-    },
-    {
-      icon: React.createElement(FaBootstrap),
-      name: "bootstrap 5",
-    },
-    {
-      icon: React.createElement(SiTailwindcss),
-      name: "TailwindCSS",
-    },
-    {
-      icon: React.createElement(FaJs),
-      name: "JavaScript ES 6",
-    },
-    {
-      icon: React.createElement(SiJquery),
-      name: "JQuery",
-    },
+    // Core Stack
     {
       icon: React.createElement(FaReact),
       name: "React JS",
+      category: "Core Stack",
     },
     {
       icon: React.createElement(SiNextdotjs),
       name: "Next JS",
+      category: "Core Stack",
     },
     {
       icon: React.createElement(FaNodeJs),
       name: "Node JS",
+      category: "Core Stack",
     },
     {
       icon: React.createElement(SiExpress),
       name: "Express JS",
-    },
-    {
-      icon: React.createElement(SiMongoose),
-      name: "mongoose",
-    },
-    {
-      icon: React.createElement(SiPrisma),
-      name: "prisma",
+      category: "Core Stack",
     },
     {
       icon: React.createElement(SiTypescript),
       name: "TypeScript",
+      category: "Core Stack",
     },
     {
-      icon: React.createElement(FaPhp),
-      name: "PHP",
+      icon: React.createElement(SiTailwindcss),
+      name: "TailwindCSS",
+      category: "Core Stack",
     },
+    // Databases & ORMs
     {
       icon: React.createElement(SiMysql),
       name: "MySQL",
+      category: "Databases & ORMs",
     },
     {
       icon: React.createElement(SiPostgresql),
       name: "PostgreSQL",
+      category: "Databases & ORMs",
     },
     {
       icon: React.createElement(SiMongodb),
       name: "MongoDB",
+      category: "Databases & ORMs",
+    },
+    {
+      icon: React.createElement(SiMongoose),
+      name: "mongoose",
+      category: "Databases & ORMs",
+    },
+    {
+      icon: React.createElement(SiPrisma),
+      name: "prisma",
+      category: "Databases & ORMs",
+    },
+    // Also experienced with
+    {
+      icon: React.createElement(FaHtml5),
+      name: "HTML 5",
+      category: "Also Experienced With",
+    },
+    {
+      icon: React.createElement(FaCss3),
+      name: "CSS 3",
+      category: "Also Experienced With",
+    },
+    {
+      icon: React.createElement(FaSass),
+      name: "sass",
+      category: "Also Experienced With",
+    },
+    {
+      icon: React.createElement(FaBootstrap),
+      name: "bootstrap 5",
+      category: "Also Experienced With",
+    },
+    {
+      icon: React.createElement(FaJs),
+      name: "JavaScript ES 6",
+      category: "Also Experienced With",
+    },
+    {
+      icon: React.createElement(SiJquery),
+      name: "JQuery",
+      category: "Also Experienced With",
+    },
+    {
+      icon: React.createElement(FaPhp),
+      name: "PHP",
+      category: "Also Experienced With",
     },
     {
       icon: React.createElement(SiStrapi),
       name: "strapi",
+      category: "Also Experienced With",
     },
     {
       icon: React.createElement(FaStripe),
       name: "stripe",
+      category: "Also Experienced With",
     },
+    // Tools
     {
       icon: React.createElement(SiGnubash),
       name: "bash command line",
+      category: "Tools",
     },
     {
       icon: React.createElement(FaNpm),
       name: "node package manager",
+      category: "Tools",
     },
     {
       icon: React.createElement(FaGit),
       name: "git",
+      category: "Tools",
     },
     {
       icon: React.createElement(FaGithub),
       name: "github",
+      category: "Tools",
     },
     {
       icon: React.createElement(SiGithubpages),
       name: "github pages",
+      category: "Tools",
     },
     {
       icon: React.createElement(SiNetlify),
       name: "netlify",
+      category: "Tools",
     },
   ],
 };
