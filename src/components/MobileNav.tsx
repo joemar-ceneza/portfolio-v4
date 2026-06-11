@@ -1,6 +1,6 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
@@ -32,13 +32,13 @@ export default function MobileNav() {
   const pathname = usePathname();
   return (
     <Sheet>
-      <SheetTrigger className="flex justify-center items-center">
+      <SheetTrigger className="flex justify-center items-center p-2 -m-2" aria-label="Open navigation menu">
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         {/* logo */}
-        <div className="mt-32 mb-40 text-center text-2xl">
+        <div className="mt-20 mb-12 text-center">
           <Link href="/">
             <h1 className="text-4xl font-semibold">
               Joemar<span className="text-accent">.</span>
@@ -46,16 +46,17 @@ export default function MobileNav() {
           </Link>
         </div>
         {/* navigation links */}
-        <nav className="flex flex-col justify-center items-center gap-8">
+        <nav className="flex flex-col justify-center items-center gap-4">
           {links.map((link, idx) => (
-            <Link
-              key={idx}
-              href={link.path}
-              className={`${
-                pathname === link.path && "text-accent border-b-2 border-accent"
-              } text-xl capitalize hover:text-accent transition-all`}>
-              {link.name}
-            </Link>
+            <SheetClose key={idx} asChild>
+              <Link
+                href={link.path}
+                className={`${
+                  pathname === link.path && "text-accent border-b-2 border-accent"
+                } text-xl capitalize hover:text-accent transition-all py-2 px-4`}>
+                {link.name}
+              </Link>
+            </SheetClose>
           ))}
         </nav>
       </SheetContent>

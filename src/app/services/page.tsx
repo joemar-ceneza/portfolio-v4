@@ -8,13 +8,13 @@ export default function Services() {
   return (
     <section className="flex-1 flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {services.map((item) => (
             <div
               key={item.num}
-              className="group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 hover:border-accent/50 transition-all duration-500">
+              className="group p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 hover:border-accent/50 transition-all duration-500">
               <div className="flex items-center justify-between mb-6">
-                <div className="text-6xl font-black text-transparent [-webkit-text-stroke:2px_#ffffff] group-hover:[-webkit-text-stroke:2px_var(--color-accent)] transition-all duration-500">
+                <div className="text-5xl sm:text-6xl font-black text-transparent [-webkit-text-stroke:2px_#ffffff] group-hover:[-webkit-text-stroke:2px_var(--color-accent)] transition-all duration-500">
                   {item.num}
                 </div>
                 <Link href={item.href}>
@@ -23,10 +23,10 @@ export default function Services() {
                   </div>
                 </Link>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-accent transition-colors duration-300">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-accent transition-colors duration-300">
                 {item.title}
               </h3>
-              <p className="text-white/70 mb-6 leading-relaxed">{item.description}</p>
+              <p className="text-sm sm:text-base text-white/70 mb-6 leading-relaxed">{item.description}</p>
               <div className="flex flex-wrap gap-2">
                 {item.tech.map((tech, techIdx) => (
                   <span

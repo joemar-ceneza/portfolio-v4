@@ -13,7 +13,7 @@ export default function Stats() {
   return (
     <section className="pt-4 pb-12 xl:pt-0">
       <div className="container mx-auto">
-        <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 max-w-[420px] mx-auto xl:max-w-none xl:flex xl:flex-wrap xl:gap-6">
           {allStats.map((item) => (
             <StatCard key={item.text} num={item.num} text={item.text} isLoading={isLoading} />
           ))}

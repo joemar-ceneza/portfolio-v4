@@ -22,21 +22,21 @@ export default function Work() {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px]">
-              <div className="text-8xl font-black text-transparent [-webkit-text-stroke:2px_#ffffff]">
+            <div className="flex flex-col gap-5 xl:gap-[30px]">
+              <div className="text-6xl xl:text-8xl font-black text-transparent [-webkit-text-stroke:2px_#ffffff]">
                 {project.number}
               </div>
               <span className="w-fit px-6 py-1 text-sm font-semibold text-black bg-accent rounded-full capitalize">
                 {project.category}
               </span>
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <h2 className="text-3xl sm:text-[42px] font-bold leading-tight xl:leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
                 {project.title}
               </h2>
-              <p className="text-white/60">{project.description}</p>
-              <ul className="flex gap-4">
+              <p className="text-sm sm:text-base text-white/60">{project.description}</p>
+              <ul className="flex flex-wrap gap-x-4 gap-y-2">
                 {project.stack.map((item, idx) => {
                   return (
-                    <li key={idx} className="text-xl text-accent">
+                    <li key={idx} className="text-base sm:text-xl text-accent">
                       {item.name}
                       {idx !== project.stack.length - 1 && ","}
                     </li>
@@ -46,22 +46,22 @@ export default function Work() {
               <div className="border border-white/20"> </div>
               <div className="flex items-center gap-4">
                 {project.live && (
-                  <Link href={project.live} target="_blank">
+                  <Link href={project.live} target="_blank" aria-label="View live project">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                          <BsArrowRight className="text-white text-3xl group-hover:text-accent" />
+                        <TooltipTrigger className="w-[56px] h-[56px] xl:w-[70px] xl:h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowRight className="text-white text-2xl xl:text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>Live Project</TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
                   </Link>
                 )}
-                <Link href={project.github}>
+                <Link href={project.github} aria-label="View source code on GitHub">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group ">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                      <TooltipTrigger className="w-[56px] h-[56px] xl:w-[70px] xl:h-[70px] rounded-full bg-white/5 flex justify-center items-center group ">
+                        <BsGithub className="text-white text-2xl xl:text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>GitHub</p>
@@ -76,12 +76,12 @@ export default function Work() {
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
-              className="xl:h-[520px] mb-12"
+              className="xl:h-[520px] mb-8 xl:mb-12"
               onSlideChange={handleSlideChange}>
               {projects.map((item, idx) => {
                 return (
                   <SwiperSlide key={idx} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                    <div className="h-[240px] sm:h-[360px] xl:h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                       <div className="relative w-full h-full">
                         <Image

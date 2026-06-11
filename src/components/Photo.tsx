@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Photo() {
   return (
     <div className="w-full h-full relative">
-      <motion.div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute">
+      <motion.div className="w-[248px] h-[248px] sm:w-[298px] sm:h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute">
         <Image
           src="/assets/profile-picture.png"
           priority
@@ -16,7 +16,7 @@ export default function Photo() {
           className="object-contain"></Image>
       </motion.div>
       <motion.svg
-        className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
+        className="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] xl:w-[506px] xl:h-[506px]"
         fill="transparent"
         viewBox="0 0 506 506"
         xmlns="https://www.w3.org/2000/svg">
