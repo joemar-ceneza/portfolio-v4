@@ -53,7 +53,7 @@ export default function Contact() {
     }
   }
   return (
-    <section className="flex items-center justify-center relative">
+    <section className="flex-1 flex items-center justify-center relative py-12 xl:py-0">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:h-[54%] order-2 xl:order-none">

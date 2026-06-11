@@ -6,7 +6,7 @@ import { services } from "./data";
 
 export default function Services() {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
+    <section className="flex-1 flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((item) => (

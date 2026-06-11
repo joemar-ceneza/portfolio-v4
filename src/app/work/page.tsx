@@ -18,7 +18,7 @@ export default function Work() {
     setProject(projects[swiper.activeIndex]);
   };
   return (
-    <section className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0">
+    <section className="flex-1 flex items-center justify-center py-12 xl:py-0">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">

@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FiDownload } from "react-icons/fi";
 import Social from "@/components/social/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/stats/Stats";
 
 export default function Home() {
   return (
-    <section className="h-full">
+    <section className="flex-1 flex flex-col justify-center">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
@@ -28,13 +27,6 @@ export default function Home() {
                 <Link href="/contact">Let&apos;s Talk</Link>
               </Button>
             </div>
-            <a
-              href="/assets/JC Resume 2026.pdf"
-              download
-              className="mt-6 inline-flex items-center gap-2 text-sm text-white/60 hover:text-accent transition-colors">
-              <FiDownload />
-              <span>Download Resume</span>
-            </a>
             <div className="my-8 xl:mb-0">
               <Social
                 containerStyles="flex gap-6"

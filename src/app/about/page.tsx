@@ -8,7 +8,7 @@ import { about, experience, education, skills } from "./data";
 
 export default function About() {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0">
+    <section className="flex-1 flex items-center justify-center py-12 xl:py-0">
       <div className="container mx-auto">
         <Tabs defaultValue="about-me" className="flex flex-col xl:flex-row gap-[60px]">
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0">
@@ -22,12 +22,12 @@ export default function About() {
               <div className="flex flex-col gap-[30px]">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:max-w-full xl:mx-0">{about.description}</p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[620px] mx-auto xl:mx-0">
                   {about.info.map((item, idx) => {
                     return (
-                      <li key={idx} className="flex items-center justify-center xl:justify-start gap-4">
-                        <span className="text-white/60">{item.fieldName}</span>
-                        <span className="text-xl">{item.fieldValue}</span>
+                      <li key={idx} className="flex flex-col items-center gap-1 xl:items-start">
+                        <span className="text-xs uppercase tracking-[2px] text-white/40">{item.fieldName}</span>
+                        <span className="text-lg">{item.fieldValue}</span>
                       </li>
                     );
                   })}

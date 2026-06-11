@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrainsMono",
@@ -55,9 +55,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <Header />
-        {children}
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex flex-1 flex-col">{children}</main>
+          {/* <Footer /> */}
+        </div>
       </body>
     </html>
   );
