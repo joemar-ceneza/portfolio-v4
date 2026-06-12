@@ -17,8 +17,8 @@ export default function Home() {
             </h1>
             <p className="max-w-[500px] mb-8 sm:mb-9 text-white/80 mx-auto xl:mx-0">
               I build modern web applications with Next.js, React, Node.js, and TypeScript. 
-              After 11 years in operations and compliance, I transitioned into software development and now focus on creating fast, 
-              reliable, and user-friendly web experiences.
+              Over the past 11 years in operations and compliance, I have developed strong problem-solving skills and used Python automation to improve workflows and efficiency.
+              Today, I focus on building full-stack web applications.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <Button asChild size="lg" className="uppercase cursor-pointer w-full sm:w-auto">
