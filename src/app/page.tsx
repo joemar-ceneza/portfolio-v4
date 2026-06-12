@@ -16,8 +16,9 @@ export default function Home() {
               <span className="text-accent">Joemar Ceneza</span>
             </h1>
             <p className="max-w-[500px] mb-8 sm:mb-9 text-white/80 mx-auto xl:mx-0">
-              I build fast, reliable web apps with Next.js, React, and Node.js — backed by 9+ years of solving
-              problems under pressure in operations and compliance. Currently open to full-time roles.
+              I build modern web applications with Next.js, React, Node.js, and TypeScript. 
+              After 11 years in operations and compliance, I transitioned into software development and now focus on creating fast, 
+              reliable, and user-friendly web experiences.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <Button asChild size="lg" className="uppercase cursor-pointer w-full sm:w-auto">
