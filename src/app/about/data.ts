@@ -27,6 +27,7 @@ import {
   SiGnubash,
   SiGithubpages,
   SiNetlify,
+  SiPython
 } from "react-icons/si";
 import React from "react";
 import { About, Experience, Education, Skills } from "./types";
@@ -79,7 +80,7 @@ export const experience: Experience = {
     {
       company: "Freelance (Remote)",
       position: "Freelance Web Developer",
-      duration: "2025 - Present",
+      duration: "2025 - 2026",
     },
     {
       company: "Leekie Enterprise Inc.",
@@ -99,6 +100,11 @@ export const education: Education = {
   description:
     "Combining a BS in Information Technology with hands-on web development training, I've gained both foundational knowledge and up-to-date technical skills to build real-world web applications.",
   items: [
+    {
+      institution: "100 Days of Code: The Complete Python Pro Bootcamp",
+      degree: "Web Development Bootcamp",
+      duration: "2025 - 2026",
+    },
     {
       institution: "Online Course Platform",
       degree: "Web Development Bootcamp",
@@ -125,6 +131,11 @@ export const skills: Skills = {
       category: "Core Stack",
     },
     {
+      icon: React.createElement(SiPython),
+      name: "Python",
+      category: "Core Stack",
+    },
+        {
       icon: React.createElement(SiNextdotjs),
       name: "Next JS",
       category: "Core Stack",
