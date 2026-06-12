@@ -11,10 +11,10 @@ export const services: Service[] = [
   },
   {
     num: "02",
-    title: "SEO",
-    description: "Optimizing websites to rank higher in search results and drive qualified organic traffic.",
+    title: "Python Automation",
+    description: "Create custom automation scripts and browser workflows to streamline business processes, reduce manual work, and improve productivity.",
     href: "",
-    tech: ["Analytics", "Keywords", "Technical SEO", "Content Strategy"],
+    tech: ["Python", "Playwright", "Data Extraction", "Workflow Automation"],
   },
   // {
   //   num: "03",
