@@ -78,14 +78,14 @@ export const experience: Experience = {
     "I bring a solid background in professional operations along with hands-on experience in web development. Currently working as a freelance web developer, I focus on building responsive, user-friendly websites using modern tools and best practices. My previous roles in compliance and advertising have helped shape my attention to detail, communication skills, and ability to work in fast-paced environments.",
   items: [
     {
-      company: "Freelance (Remote)",
-      position: "Freelance Web Developer",
-      duration: "2025 - 2026",
-    },
-    {
       company: "Leekie Enterprise Inc.",
       position: "Account Compliance",
       duration: "2016 - Present",
+    },
+    {
+      company: "Freelance (Remote)",
+      position: "Freelance Web Developer",
+      duration: "2025 - 2026",
     },
     {
       company: "Wide-Out Workforces Inc.",
@@ -101,8 +101,8 @@ export const education: Education = {
     "Combining a BS in Information Technology with hands-on web development training, I've gained both foundational knowledge and up-to-date technical skills to build real-world web applications.",
   items: [
     {
-      institution: "100 Days of Code: The Complete Python Pro Bootcamp",
-      degree: "Web Development Bootcamp",
+      institution: "Online Course Platform",
+      degree: "Python Pro Bootcamp",
       duration: "2025 - 2026",
     },
     {
