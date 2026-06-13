@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <section className="flex-1 flex flex-col justify-center py-8 xl:py-0">
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
+        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-14">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-base sm:text-xl">Full-Stack Developer</span>
             <h1 className="h1 mb-6">
               Hello, I&apos;m <br />
               <span className="text-accent">Joemar Ceneza</span>
             </h1>
-            <p className="max-w-[500px] mb-8 sm:mb-9 text-white/80 mx-auto xl:mx-0">
+            <p className="max-w-[600px] mb-8 sm:mb-9 text-white/80 mx-auto xl:mx-0">
               I build modern web applications with Next.js, React, Node.js, and TypeScript. 
               Over the past 11 years in operations and compliance, I have developed strong problem-solving skills and used Python automation to improve workflows and efficiency.
               Today, I focus on building full-stack web applications.
