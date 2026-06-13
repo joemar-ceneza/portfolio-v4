@@ -20,11 +20,11 @@ export default function Home() {
               Over the past 11 years in operations and compliance, I have developed strong problem-solving skills and used Python automation to improve workflows and efficiency.
               Today, I focus on building full-stack web applications.
             </p>
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              <Button asChild size="lg" className="uppercase cursor-pointer w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center xl:justify-start gap-4 sm:gap-6">
+              <Button asChild size="lg" className="uppercase cursor-pointer w-auto">
                 <Link href="/work">View My Work</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="uppercase cursor-pointer w-full sm:w-auto">
+              <Button asChild variant="outline" size="lg" className="uppercase cursor-pointer w-auto">
                 <Link href="/contact">Let&apos;s Talk</Link>
               </Button>
             </div>
